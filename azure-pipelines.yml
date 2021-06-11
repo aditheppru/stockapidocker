@@ -52,4 +52,3 @@ steps:
     command: 'push'
     tags: |
       3.0
-
