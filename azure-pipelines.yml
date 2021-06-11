@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: 'BOICOMP20050005'
+pool: 'Defualt'
 
 variables:
   buildConfiguration: 'Release'
