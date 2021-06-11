@@ -40,8 +40,8 @@ steps:
   displayName: Build an image  
   inputs:  
     command: Build an image  
-    containerregistrytype: Container Registry  
-    dockerRegistryEndpoint: DockerHub  
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
     dockerFile: 'StockApi/Dockerfile'
     imageName: $(dockerImageName)
     imageNamesPath:   
