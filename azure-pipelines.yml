@@ -42,6 +42,7 @@ steps:
     repository: $(dockerImageName)
     command: 'build'
     Dockerfile: '**/Dockerfile'
+
 - task: Docker@2
   displayName: Push Docker image
   inputs:
