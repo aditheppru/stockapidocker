@@ -2,7 +2,10 @@ ARG VERSION=5.0-focal
 FROM mcr.microsoft.com/dotnet/sdk:$VERSION AS build
 WORKDIR /src
 
-COPY ["StockApi/", "StockApi/"]
+COPY StockApi/*.csproj ./  
+COPY . ./ 
+
+#COPY ["StockApi/", "StockApi/"]
 
 
 RUN dotnet publish "StockApi/StockApi.csproj" -c Release -o /app/publish
