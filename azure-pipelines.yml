@@ -10,7 +10,7 @@ pool: 'MyAgentPool'
 
 variables:
   buildConfiguration: 'Release'
-  dockerImageName: 'aditheppru/stockapi'
+  dockerImageName: 'stockapi'
 
 steps:
 - task: DotNetCoreCLI@2
