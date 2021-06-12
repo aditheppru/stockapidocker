@@ -45,4 +45,4 @@ steps:
     dockerFile: StockApi/Dockerfile
     includeLatestTag: true
     useDefaultContext: false
-    buildContext: '$(Parameters.buildContext)'
+    buildContext: '$(Build.SourcesDirectory)'
