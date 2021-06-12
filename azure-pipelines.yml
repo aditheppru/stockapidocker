@@ -55,7 +55,6 @@ steps:
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
     command: 'Tag image'
     arguments: 'stockapi:$(Build.BuildId) aditheppru/stockapi'
-    imageName: 'stockapi:$(Build.BuildId)'
     qualifySourceImageName: true
 
 - task: Docker@1
