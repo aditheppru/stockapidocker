@@ -54,7 +54,7 @@ steps:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
     command: 'Tag image'
-    arguments: 'stockapi:$(Build.BuildId) aditheppru/stockapi'
+    imageName: 'stockapi:$(Build.BuildId)'
     qualifySourceImageName: true
 
 - task: Docker@1
@@ -62,6 +62,6 @@ steps:
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
-    imageName: 'aditheppru/stockapi:$(Build.BuildId)'
+    imageName: 'stockapi:$(Build.BuildId)'
     command: 'Push an image'
     includeSourceTags: true
