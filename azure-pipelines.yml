@@ -43,6 +43,7 @@ steps:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
     dockerFile: StockApi/Dockerfile
+    imageName: 'stockapi:$(Build.BuildId)'
     includeLatestTag: true
     useDefaultContext: false
     buildContext: '$(Build.SourcesDirectory)'
@@ -52,5 +53,6 @@ steps:
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
+    imageName: 'stockapi:$(Build.BuildId)'
     command: 'Push an image'
     includeSourceTags: true
