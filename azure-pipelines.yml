@@ -46,3 +46,11 @@ steps:
     includeLatestTag: true
     useDefaultContext: false
     buildContext: '$(Build.SourcesDirectory)'
+
+- task: Docker@1
+  displayName: 'test push'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
+    command: 'Push an image'
+    includeSourceTags: true
