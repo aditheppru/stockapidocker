@@ -38,7 +38,7 @@ steps:
 
 #Your build pipeline references an undefined variable named ‘Parameters.buildContext’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 - task: Docker@1
-  displayName: 'test buildAndPush'
+  displayName: 'Build Docker Image'
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
