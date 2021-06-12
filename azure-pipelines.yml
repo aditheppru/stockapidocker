@@ -48,7 +48,7 @@ steps:
     buildContext: '$(Build.SourcesDirectory)'
 
 - task: Docker@1
-  displayName: 'test push'
+  displayName: 'Push Docker Image'
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
