@@ -63,6 +63,6 @@ steps:
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub Service Connection aditheppru'
-    imageName: 'stockapi:$(Build.BuildId)'
+    imageName: 'aditheppru/stockapi:$(Build.BuildId)'
     command: 'Push an image'
     includeSourceTags: true
