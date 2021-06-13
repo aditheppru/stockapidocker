@@ -1,17 +1,22 @@
-ARG VERSION=5.0-focal
-FROM mcr.microsoft.com/dotnet/sdk:$VERSION AS build
-WORKDIR /src
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-#test5
-COPY ["StockApi/", "StockApi/"]
-
-RUN dotnet publish "StockApi/StockApi.csproj" -c Release -o /app/publish
-RUN ls -la /app/publish
-
-FROM mcr.microsoft.com/dotnet/aspnet:$VERSION AS final
-ENV ASPNETCORE_URLS=http://+:8080
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-COPY --from=build /app/publish .
+EXPOSE 80
+EXPOSE 443
 
-EXPOSE 8080
-ENTRYPOINT ["dotnet", "StockApi.Api.dll","--urls","http://0.0.0.0:8080"]
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+COPY ["StockApi/", "StockApi/"]
+RUN dotnet restore "StockApi/StockApi.csproj"
+COPY . .
+WORKDIR "/src/StockApi"
+RUN dotnet build "StockApi.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "StockApi.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "StockApi.dll"]
